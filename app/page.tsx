@@ -6,6 +6,7 @@ import { useState } from "react"
 import { ChevronRight, List } from "lucide-react"
 import { MiniAppFrame } from "@/components/mini-app-frame"
 import { PillTabs } from "@/components/pill-tabs"
+import { triggerTabHaptic } from "@/lib/haptic"
 import { ActionTiles } from "@/components/action-tiles"
 import { AssetRow } from "@/components/asset-row"
 import { Sparkline } from "@/components/sparkline"
@@ -105,7 +106,7 @@ export default function HomePage() {
           <div className="absolute left-1/2 -translate-x-1/2">
             <PillTabs
               value={tab}
-              onChange={setTab}
+              onChange={(v) => { triggerTabHaptic(); setTab(v) }}
               options={[
                 { value: "verify", label: "Verify" },
                 { value: "account", label: "Account" },
