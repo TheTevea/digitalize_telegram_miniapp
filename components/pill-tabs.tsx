@@ -19,7 +19,7 @@ export function PillTabs({
   return (
     <div
       role="tablist"
-      className={cn("card-soft relative inline-flex items-center gap-0 rounded-full p-1", className)}
+      className={cn("relative inline-flex items-center gap-0 rounded-full bg-muted p-1", className)}
     >
       {options.map((o) => {
         const active = o.value === value
