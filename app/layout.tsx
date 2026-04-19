@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next"
+import Script from "next/script"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -32,6 +33,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-background" suppressHydrationWarning>
+      <head>
+        <Script src="https://telegram.org/js/telegram-web-app.js" strategy="beforeInteractive" />
+      </head>
       <body className={`${geist.variable} ${geistMono.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           {children}
