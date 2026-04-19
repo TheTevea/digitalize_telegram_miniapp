@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { HouseSimple, Storefront, Wallet, UserCircle, type Icon } from "@phosphor-icons/react/dist/ssr"
+import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 type Item = {
@@ -51,9 +52,11 @@ export function BottomNav() {
               )}
             >
               {active ? (
-                <span
+                <motion.span
+                  layoutId="bottom-nav-indicator"
                   aria-hidden
-                  className="absolute inset-0 rounded-full bg-[var(--brand-soft)] transition-opacity duration-200"
+                  className="absolute inset-0 rounded-full bg-[var(--brand-soft)]"
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 />
               ) : null}
               <Icon
