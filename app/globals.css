@@ -31,7 +31,7 @@
   --positive: oklch(0.58 0.15 150);
   --positive-soft: oklch(0.95 0.05 150);
   --negative: oklch(0.62 0.2 25);
-  --negative-soft: oklch(0.96 0.04 25);
+  --negative-soft: oklch(0.975 0.02 25);
   --chart-1: oklch(0.58 0.15 150);
   --chart-2: oklch(0.7 0.13 165);
   --chart-3: oklch(0.62 0.2 25);
