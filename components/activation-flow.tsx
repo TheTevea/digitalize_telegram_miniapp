@@ -258,7 +258,7 @@ function SessionForm({
           className="w-full resize-y bg-transparent px-3 py-3 font-mono text-[12.5px] leading-relaxed placeholder:text-muted-foreground/70 focus:outline-none disabled:opacity-60"
         />
         <div className="flex items-center justify-between gap-2 border-t border-border/60 px-3 py-1.5 text-[11px] text-muted-foreground">
-          <p className="tabular">{value.length.toLocaleString()} chars</p>
+          {/* <p className="tabular">{value.length.toLocaleString()} chars</p> */}
           {show ? (
             validation.ok ? (
               <span className="inline-flex items-center gap-1 text-[var(--brand)]">
@@ -279,7 +279,7 @@ function SessionForm({
 
       <button
         type="submit"
-        disabled={disabled || !validation.ok}
+        disabled={disabled}
         className={cn(
           "press mt-1 inline-flex h-12 items-center justify-center gap-2 rounded-full text-[14px] font-semibold transition",
           "bg-[var(--brand)] text-[var(--brand-foreground)] shadow-[0_10px_28px_-10px_color-mix(in_oklch,var(--brand)_55%,transparent)]",
