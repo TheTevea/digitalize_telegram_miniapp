@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { BadgeCheck } from "lucide-react"
 import { MiniAppFrame } from "@/components/mini-app-frame"
 import { BackLink } from "@/components/back-link"
 import { PlanPicker } from "@/components/plan-picker"
@@ -6,7 +7,7 @@ import { PlanPicker } from "@/components/plan-picker"
 export default function GptPlansPage() {
   return (
     <MiniAppFrame>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-5">
         <BackLink href="/verify" />
 
         <header className="flex items-start gap-3 px-1">
@@ -16,7 +17,7 @@ export default function GptPlansPage() {
           <div className="min-w-0">
             <div className="flex items-center gap-1.5">
               <h1 className="text-[20px] font-semibold leading-tight tracking-tight">ChatGPT Verification</h1>
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--positive)]" aria-label="Live" />
+              <BadgeCheck className="h-4 w-4 text-[var(--positive)]" aria-label="Verified" />
             </div>
             <p className="mt-1 text-[13px] leading-relaxed text-muted-foreground">
               Pick a plan, pay, paste your session JSON.
