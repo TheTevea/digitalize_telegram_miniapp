@@ -35,9 +35,9 @@ export function BottomNav() {
       <div
         className="flex w-full items-stretch gap-1 rounded-full p-1.5"
         style={{
-          background: "rgba(0,0,0,0.6)",
+          background: "rgba(255,255,255,0.85)",
           boxShadow:
-            "0 1px 0 0 color-mix(in oklch, var(--foreground) 5%, transparent), 0 14px 30px -14px color-mix(in oklch, var(--foreground) 22%, transparent), inset 0 0.5px 0 rgba(255,255,255,0.08)",
+            "0 1px 0 0 rgba(0,0,0,0.06), 0 14px 30px -14px rgba(0,0,0,0.18), inset 0 0.5px 0 rgba(255,255,255,0.9)",
         }}
       >
         {items.map(({ href, label, icon: Icon, match }) => {
