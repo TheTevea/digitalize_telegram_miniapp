@@ -89,8 +89,8 @@ export function PlanPicker() {
                 className={cn(
                   "card-soft press relative w-full rounded-2xl p-4 text-left transition",
                   isSelected
-                    ? "ring-2 ring-[var(--brand)] ring-offset-2 ring-offset-background bg-[var(--brand)]/[0.04]"
-                    : "ring-1 ring-transparent",
+                    ? "outline outline-2 outline-[var(--brand)] outline-offset-2 bg-[var(--brand)]/[0.04]"
+                    : "outline outline-2 outline-transparent",
                 )}
               >
                 {p.recommended && (
