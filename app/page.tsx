@@ -142,7 +142,7 @@ export default function HomePage() {
           </div>
           <ul>
             {services.map((service) => (
-              <li key={service.id}>
+              <li key={service.id} className="relative [&:not(:last-child)]:after:absolute [&:not(:last-child)]:after:bottom-0 [&:not(:last-child)]:after:left-[72px] [&:not(:last-child)]:after:right-0 [&:not(:last-child)]:after:h-px [&:not(:last-child)]:after:bg-border/70 [&:not(:last-child)]:after:content-['']">
                 <AssetRow
                   href={service.href}
                   mark={service.mark}
