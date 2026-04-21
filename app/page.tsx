@@ -160,6 +160,46 @@ export default function HomePage() {
 
             {/* Quick actions */}
             <ActionTiles />
+
+            {/* Tutorial card */}
+            <a
+              href="https://youtu.be/fk_nyjMDExQ?si=Wi6gh4xr5QQr1l7m"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="press card-soft block overflow-hidden rounded-2xl"
+              aria-label="Watch tutorial: How to Verify ChatGPT Plan"
+            >
+              {/* Video thumbnail with play overlay */}
+              <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                <img
+                  src="https://img.youtube.com/vi/fk_nyjMDExQ/hqdefault.jpg"
+                  alt="How to Verify ChatGPT Plan tutorial thumbnail"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                {/* Dark gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                {/* Play button */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 shadow-lg backdrop-blur-sm">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 translate-x-0.5 text-[var(--brand)]" aria-hidden>
+                      <path d="M8 5.14v14l11-7-11-7z" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              {/* Card footer */}
+              <div className="flex items-center justify-between px-4 py-3">
+                <div>
+                  <p className="text-[13px] font-semibold leading-tight">How to Verify ChatGPT Plan</p>
+                  <p className="mt-0.5 text-[12px] text-muted-foreground">Tutorial · YouTube</p>
+                </div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden>
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </div>
+            </a>
           </>
         )}
 
