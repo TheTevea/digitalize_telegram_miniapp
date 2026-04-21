@@ -68,9 +68,6 @@ export default function VerifyPage() {
     <MiniAppFrame>
       <div className="flex flex-col gap-3">
         <BackLink href="/" />
-        <div className="flex justify-end">
-          <span className="text-[11px] text-muted-foreground tabular">Step 1 of 3</span>
-        </div>
 
         <header className="px-1 pb-1">
           <h1 className="text-[22px] font-semibold leading-tight tracking-tight text-balance">
