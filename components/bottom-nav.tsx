@@ -35,11 +35,9 @@ export function BottomNav() {
       <div
         className="flex w-full items-stretch gap-1 rounded-full p-1.5"
         style={{
-          background: "color-mix(in oklch, var(--card) 72%, transparent)",
-          backdropFilter: "blur(20px) saturate(180%)",
-          WebkitBackdropFilter: "blur(20px) saturate(180%)",
+          background: "rgba(0,0,0,0.6)",
           boxShadow:
-            "0 1px 0 0 color-mix(in oklch, var(--foreground) 5%, transparent), 0 14px 30px -14px color-mix(in oklch, var(--foreground) 22%, transparent), inset 0 0.5px 0 color-mix(in oklch, white 60%, transparent)",
+            "0 1px 0 0 color-mix(in oklch, var(--foreground) 5%, transparent), 0 14px 30px -14px color-mix(in oklch, var(--foreground) 22%, transparent), inset 0 0.5px 0 rgba(255,255,255,0.08)",
         }}
       >
         {items.map(({ href, label, icon: Icon, match }) => {
