@@ -130,68 +130,46 @@ export default function HomePage() {
           <span className="h-9 w-9" aria-hidden />
         </div>
 
-        {/* Priority AI Platform cards */}
-        <section aria-labelledby="verify-title" className="card-soft overflow-hidden rounded-2xl">
-          <div className="flex items-center justify-between px-4 pb-1 pt-3">
-            <h2 id="verify-title" className="text-[14px] font-semibold text-[var(--brand)]">
-              Verification Services
-            </h2>
-            <Link href="/verify" className="text-[13px] font-semibold text-[var(--brand)]">
-              More
-            </Link>
-          </div>
-          <ul>
-            {services.map((service) => (
-              <li key={service.id} className="relative [&:not(:last-child)]:after:absolute [&:not(:last-child)]:after:bottom-0 [&:not(:last-child)]:after:left-[72px] [&:not(:last-child)]:after:right-0 [&:not(:last-child)]:after:h-px [&:not(:last-child)]:after:bg-border/70 [&:not(:last-child)]:after:content-['']">
-                <AssetRow
-                  href={service.href}
-                  mark={service.mark}
-                  title={service.name}
-                  subtitle={service.subtitle}
-                  value={service.price}
-                  meta="from"
-                />
-              </li>
-            ))}
-          </ul>
-        </section>
+        {tab === "verify" && (
+          <>
+            {/* Priority AI Platform cards */}
+            <section aria-labelledby="verify-title" className="card-soft overflow-hidden rounded-2xl">
+              <div className="flex items-center justify-between px-4 pb-1 pt-3">
+                <h2 id="verify-title" className="text-[14px] font-semibold text-[var(--brand)]">
+                  Verification Services
+                </h2>
+                <Link href="/verify" className="text-[13px] font-semibold text-[var(--brand)]">
+                  More
+                </Link>
+              </div>
+              <ul>
+                {services.map((service) => (
+                  <li key={service.id} className="relative [&:not(:last-child)]:after:absolute [&:not(:last-child)]:after:bottom-0 [&:not(:last-child)]:after:left-[72px] [&:not(:last-child)]:after:right-0 [&:not(:last-child)]:after:h-px [&:not(:last-child)]:after:bg-border/70 [&:not(:last-child)]:after:content-['']">
+                    <AssetRow
+                      href={service.href}
+                      mark={service.mark}
+                      title={service.name}
+                      subtitle={service.subtitle}
+                      value={service.price}
+                      meta="from"
+                    />
+                  </li>
+                ))}
+              </ul>
+            </section>
 
-        {/* Quick actions */}
-        <ActionTiles />
+            {/* Quick actions */}
+            <ActionTiles />
+          </>
+        )}
 
-        {/* Accounts & top-ups */}
-        {/* <ul className="card-soft overflow-hidden rounded-2xl">
-          <AssetRow
-            href="/store"
-            mark={
-              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[color-mix(in_oklch,var(--brand)_10%,white)]">
-                <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5 text-[var(--brand)]" aria-hidden>
-                  <path d="M4 17l5-6 4 4 7-9" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M14 6h6v6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </span>
-            }
-            title="Accounts & top-ups"
-            subtitle="Ready-to-go verified accounts"
-          />
-        </ul> */}
-
-        {/* Trending */}
-        {/* <section aria-labelledby="trending-title" className="card-soft overflow-hidden rounded-2xl">
-          <div className="flex items-center justify-between px-4 pb-1 pt-3">
-            <h3 id="trending-title" className="text-[14px] font-semibold text-[var(--brand)]">
-              Trending
-            </h3>
-            <Link href="/verify" className="text-[13px] font-semibold text-[var(--brand)]">
-              More
-            </Link>
-          </div>
-          <div className="grid grid-cols-2 gap-0">
+        {tab === "account" && (
+          <div className="flex flex-col gap-3">
             {trending.map((t) => (
               <Link
                 key={t.id}
                 href={t.href}
-                className="press flex flex-col gap-1.5 px-4 py-3 hover:bg-black/[0.02]"
+                className="press card-soft flex flex-col gap-1.5 overflow-hidden rounded-2xl px-4 py-3 hover:bg-black/[0.02]"
               >
                 <div className="flex items-center justify-between gap-2">
                   <div className="shrink-0">{t.mark}</div>
@@ -207,22 +185,7 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
-        </section> */}
-
-        {/* Transaction history entry */}
-        {/* <ul className="card-soft overflow-hidden rounded-2xl">
-          <AssetRow
-            href="/history"
-            mark={
-              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-muted">
-                <List className="h-5 w-5 text-foreground/80" aria-hidden />
-              </span>
-            }
-            title="Transaction history"
-            trailing={<ChevronRight className="ml-1 h-4 w-4 shrink-0 text-muted-foreground/80" aria-hidden />}
-            highlight
-          />
-        </ul> */}
+        )}
       </div>
     </MiniAppFrame>
   )
