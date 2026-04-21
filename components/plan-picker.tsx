@@ -77,7 +77,6 @@ export function PlanPicker() {
       <ul role="radiogroup" aria-label="Plans" className="flex flex-col gap-2">
         {plans.map((p) => {
           const isSelected = p.id === selected
-          const stockPct = Math.round((p.stock / p.stockTotal) * 100)
           const lowStock = p.stock <= 25
           return (
             <li key={p.id}>
@@ -121,7 +120,17 @@ export function PlanPicker() {
                     <p className="mt-1.5 text-[14px] font-semibold leading-tight">
                       ChatGPT {p.tier} · {p.duration}
                     </p>
-                    <p className="mt-0.5 text-[12px] text-muted-foreground">{p.warranty}</p>
+                    <p className="mt-0.5 flex items-center gap-1.5 text-[12px] text-muted-foreground">
+                      {p.warranty}
+                      <span className={cn(
+                        "rounded-md px-1 py-0.5 text-[10px] font-medium tabular",
+                        lowStock
+                          ? "bg-[var(--negative-soft)] text-[var(--negative)]"
+                          : "bg-muted text-muted-foreground",
+                      )}>
+                        {p.stock} left
+                      </span>
+                    </p>
                   </div>
 
                   <div className="flex flex-col items-end gap-1.5">
@@ -143,21 +152,7 @@ export function PlanPicker() {
                   </div>
                 </div>
 
-                <div className="mt-3 flex items-center gap-2">
-                  <div className="h-1 flex-1 overflow-hidden rounded-full bg-muted">
-                    <div
-                      className={cn(
-                        "h-full rounded-full transition-[width] duration-500",
-                        lowStock ? "bg-[var(--negative)]" : "bg-[var(--brand)]",
-                      )}
-                      style={{ width: `${stockPct}%` }}
-                    />
-                  </div>
-                  <p className="text-[11px] text-muted-foreground tabular">
-                    <span className={cn(lowStock && "font-semibold text-[var(--negative)]")}>{p.stock}</span>
-                    <span className="opacity-60"> / {p.stockTotal}</span>
-                  </p>
-                </div>
+
 
                 {isSelected && (
                   <ul className="mt-3 flex flex-col gap-1.5 border-t border-border/70 pt-3 fade-up">
