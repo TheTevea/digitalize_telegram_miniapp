@@ -31,19 +31,16 @@ export function UserCard({ variant = "full" }: { variant?: "full" | "compact" })
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-1.5">
             <h2 className="text-[16px] font-semibold leading-tight tracking-tight">TEVEA CHHEM</h2>
-            <span className="inline-flex items-center rounded-full bg-destructive px-1.5 py-[1px] text-[9px] font-bold uppercase tracking-wider text-destructive-foreground">
-              VIP
-            </span>
           </div>
           {/* <p className="mt-0.5 truncate text-[12px] text-muted-foreground tabular">@TEVEA_CHHEM</p> */}
-          <p className="mt-1 inline-flex items-center gap-1 rounded-full bg-muted px-1.5 py-[1px] text-[10px] font-medium text-muted-foreground">
+          {/* <p className="mt-1 inline-flex items-center gap-1 rounded-full bg-muted px-1.5 py-[1px] text-[10px] font-medium text-muted-foreground">
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
             Tier 2 · Trusted
-          </p>
+          </p> */}
         </div>
       </div>
 
-      <div className="mt-3 grid grid-cols-3 gap-2.5 px-2 pb-3">
+      <div className="mt-3 grid grid-cols-2 gap-1.5 px-2 pb-3">
         <Stat label="Verified" value="7" tone="brand" />
         <Stat label="Invited" value="3" />
       </div>
@@ -64,7 +61,7 @@ function Avatar({ size = 40 }: { size?: number }) {
       />
       <span
         aria-hidden
-        className="absolute -bottom-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-[var(--brand)] ring-2 ring-card"
+        className="absolute -bottom-0 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-[var(--brand)] ring-2 ring-card"
       >
         <Check className="h-2.5 w-2.5 text-[var(--brand-foreground)]" strokeWidth={3.5} />
       </span>
