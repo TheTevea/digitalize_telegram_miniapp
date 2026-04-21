@@ -66,7 +66,7 @@ export default function ProfilePage() {
       <div className="flex flex-col gap-3">
         <UserCard />
 
-        <TierProgress />
+        {/* <TierProgress /> */}
 
         <ReferralCard />
 
