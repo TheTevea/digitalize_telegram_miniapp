@@ -36,6 +36,8 @@ export function BottomNav() {
         className="flex w-full items-stretch gap-1 rounded-full p-1.5"
         style={{
           background: "rgba(255,255,255,0.85)",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
           boxShadow:
             "0 1px 0 0 rgba(0,0,0,0.06), 0 14px 30px -14px rgba(0,0,0,0.18), inset 0 0.5px 0 rgba(255,255,255,0.9)",
         }}
