@@ -9,12 +9,12 @@ export function UserCard({ variant = "full" }: { variant?: "full" | "compact" })
         <Avatar />
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-1.5">
-            <p className="text-[14px] font-semibold tracking-tight">TEVEA</p>
+            <p className="text-[14px] font-semibold tracking-tight">TEVEA CHHEM</p>
             <span className="inline-flex items-center rounded-full bg-destructive px-1.5 py-[1px] text-[9px] font-bold uppercase tracking-wider text-destructive-foreground">
               VIP
             </span>
           </div>
-          <p className="truncate text-[12px] text-muted-foreground tabular">@TEVEA_CHHEM</p>
+          {/* <p className="truncate text-[12px] text-muted-foreground tabular">@TEVEA_CHHEM</p> */}
         </div>
         <div className="text-right">
           <p className="text-[10px] text-muted-foreground">Balance</p>

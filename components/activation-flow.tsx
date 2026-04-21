@@ -31,7 +31,7 @@ export function ActivationFlow() {
     try {
       const text = await navigator.clipboard.readText()
       setSession(text)
-    } catch {}
+    } catch { }
   }
 
   async function handleCopyLink() {
@@ -39,7 +39,7 @@ export function ActivationFlow() {
       await navigator.clipboard.writeText(SESSION_URL)
       setCopied(true)
       setTimeout(() => setCopied(false), 1200)
-    } catch {}
+    } catch { }
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -83,7 +83,7 @@ export function ActivationFlow() {
 
   return (
     <div className="flex flex-col gap-3">
-      <StepTracker steps={[step1, step2, step3]} />
+      {/* <StepTracker steps={[step1, step2, step3]} /> */}
 
       <GuideCard copied={copied} onCopyLink={handleCopyLink} />
 
@@ -137,9 +137,6 @@ function GuideCard({ copied, onCopyLink }: { copied: boolean; onCopyLink: () => 
     <section aria-label="Activation guide" className="card-soft overflow-hidden rounded-2xl">
       <div className="flex items-center justify-between px-4 pt-3">
         <p className="text-[13px] font-semibold">Activation guide</p>
-        <span className="rounded-full bg-muted px-1.5 py-[1px] text-[10px] font-medium text-muted-foreground">
-          2 min
-        </span>
       </div>
 
       <ol className="px-4 pb-2 pt-2">
@@ -184,7 +181,7 @@ function GuideCard({ copied, onCopyLink }: { copied: boolean; onCopyLink: () => 
 
 function GuideStep({ n, title, children }: { n: number; title: string; children?: React.ReactNode }) {
   return (
-    <li className="flex gap-3 py-2">
+    <li className="flex items-center gap-3 py-2">
       <StepChip n={n} state="upcoming" />
       <div className="min-w-0 flex-1">
         <p className="text-[13px] font-semibold">{title}</p>
