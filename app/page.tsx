@@ -160,7 +160,7 @@ export default function HomePage() {
         <ActionTiles />
 
         {/* Accounts & top-ups */}
-        <ul className="card-soft overflow-hidden rounded-2xl">
+        {/* <ul className="card-soft overflow-hidden rounded-2xl">
           <AssetRow
             href="/store"
             mark={
@@ -174,10 +174,10 @@ export default function HomePage() {
             title="Accounts & top-ups"
             subtitle="Ready-to-go verified accounts"
           />
-        </ul>
+        </ul> */}
 
         {/* Trending */}
-        <section aria-labelledby="trending-title" className="card-soft overflow-hidden rounded-2xl">
+        {/* <section aria-labelledby="trending-title" className="card-soft overflow-hidden rounded-2xl">
           <div className="flex items-center justify-between px-4 pb-1 pt-3">
             <h3 id="trending-title" className="text-[14px] font-semibold text-[var(--brand)]">
               Trending
@@ -207,10 +207,10 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
-        </section>
+        </section> */}
 
         {/* Transaction history entry */}
-        <ul className="card-soft overflow-hidden rounded-2xl">
+        {/* <ul className="card-soft overflow-hidden rounded-2xl">
           <AssetRow
             href="/history"
             mark={
@@ -222,7 +222,7 @@ export default function HomePage() {
             trailing={<ChevronRight className="ml-1 h-4 w-4 shrink-0 text-muted-foreground/80" aria-hidden />}
             highlight
           />
-        </ul>
+        </ul> */}
       </div>
     </MiniAppFrame>
   )
