@@ -45,6 +45,17 @@ export function ActivationFlow() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!validation.ok) {
+      const reason = session.trim().length === 0
+        ? "Please paste your ChatGPT session JSON before submitting."
+        : `Invalid session data: ${validation.reason ?? "Not valid JSON."}`
+
+      const tg = (window as any)?.Telegram?.WebApp
+      if (tg?.showAlert) {
+        tg.showAlert(reason)
+      } else {
+        window.alert(reason)
+      }
+
       setState("error")
       setMessage(validation.reason ?? "Invalid session JSON.")
       return

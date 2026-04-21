@@ -33,10 +33,13 @@ export function BottomNav() {
       className="fixed inset-x-0 bottom-[max(20px,env(safe-area-inset-bottom))] z-20 mx-auto flex w-full max-w-[420px] justify-center px-4"
     >
       <div
-        className="flex w-full items-stretch gap-1 rounded-full bg-card p-1.5"
+        className="flex w-full items-stretch gap-1 rounded-full p-1.5"
         style={{
+          background: "color-mix(in oklch, var(--card) 72%, transparent)",
+          backdropFilter: "blur(20px) saturate(180%)",
+          WebkitBackdropFilter: "blur(20px) saturate(180%)",
           boxShadow:
-            "0 1px 0 0 color-mix(in oklch, var(--foreground) 5%, transparent), 0 14px 30px -14px color-mix(in oklch, var(--foreground) 28%, transparent)",
+            "0 1px 0 0 color-mix(in oklch, var(--foreground) 5%, transparent), 0 14px 30px -14px color-mix(in oklch, var(--foreground) 22%, transparent), inset 0 0.5px 0 color-mix(in oklch, white 60%, transparent)",
         }}
       >
         {items.map(({ href, label, icon: Icon, match }) => {
