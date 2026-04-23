@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { ChevronRight, List } from "lucide-react"
 import { MiniAppFrame } from "@/components/mini-app-frame"
 import { PillTabs } from "@/components/pill-tabs"
@@ -11,6 +11,7 @@ import { ActionTiles } from "@/components/action-tiles"
 import { AssetRow } from "@/components/asset-row"
 import { Sparkline } from "@/components/sparkline"
 import { DeltaPill } from "@/components/delta-pill"
+import { HomePageSkeleton } from "@/components/home-skeleton"
 
 
 const iconMark = (src: string, alt: string) => (
@@ -103,10 +104,26 @@ const trending = [
 
 export default function HomePage() {
   const [tab, setTab] = useState("verify")
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    // One rAF keeps the skeleton visible for the first paint frame,
+    // then swaps in the real content with the fade-up animation.
+    const id = requestAnimationFrame(() => setMounted(true))
+    return () => cancelAnimationFrame(id)
+  }, [])
+
+  if (!mounted) {
+    return (
+      <MiniAppFrame>
+        <HomePageSkeleton />
+      </MiniAppFrame>
+    )
+  }
 
   return (
     <MiniAppFrame>
-      <div className="flex flex-col gap-3">
+      <div className="fade-up flex flex-col gap-3">
         {/* Avatar + tabs */}
         <div className="relative flex items-center justify-between py-1">
           <Image
