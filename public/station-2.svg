@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a8d8ea"/>
+      <stop offset="100%" stop-color="#E8F6FF"/>
+    </linearGradient>
+  </defs>
+  <!-- Sky -->
+  <rect width="400" height="300" fill="url(#sky2)"/>
+  <!-- Trees bg -->
+  <circle cx="50" cy="180" r="35" fill="#4CAF50" opacity="0.3"/>
+  <circle cx="350" cy="170" r="40" fill="#4CAF50" opacity="0.3"/>
+  <!-- Ground -->
+  <rect y="210" width="400" height="90" fill="#d0d0d0"/>
+  <rect y="210" width="400" height="8" fill="#bbb"/>
+  <!-- Parking lines -->
+  <rect x="80" y="240" width="3" height="50" fill="#fff"/>
+  <rect x="160" y="240" width="3" height="50" fill="#fff"/>
+  <rect x="240" y="240" width="3" height="50" fill="#fff"/>
+  <rect x="320" y="240" width="3" height="50" fill="#fff"/>
+  <!-- Charger 1 -->
+  <rect x="100" y="130" width="55" height="80" rx="6" fill="#2a9d8f"/>
+  <rect x="110" y="140" width="35" height="22" rx="3" fill="#1a7a6f"/>
+  <rect x="117" y="146" width="21" height="10" rx="1" fill="#40e0d0"/>
+  <circle cx="127" cy="190" r="9" fill="#1a7a6f"/>
+  <text x="127" y="155" font-family="sans-serif" font-size="6" fill="white" text-anchor="middle" font-weight="bold">CG EV</text>
+  <!-- Charger 2 -->
+  <rect x="240" y="130" width="55" height="80" rx="6" fill="#2a9d8f"/>
+  <rect x="250" y="140" width="35" height="22" rx="3" fill="#1a7a6f"/>
+  <rect x="257" y="146" width="21" height="10" rx="1" fill="#40e0d0"/>
+  <circle cx="267" cy="190" r="9" fill="#1a7a6f"/>
+  <text x="267" y="155" font-family="sans-serif" font-size="6" fill="white" text-anchor="middle" font-weight="bold">CG EV</text>
+</svg>

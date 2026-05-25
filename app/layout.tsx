@@ -9,8 +9,8 @@ const geist = Geist({ subsets: ["latin"], variable: "--font-geist" })
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" })
 
 export const metadata: Metadata = {
-  title: "VetVerify — Telegram Mini App",
-  description: "Verify ChatGPT Plus, Pro, Gemini and more subscriptions directly inside Telegram.",
+  title: "EV Charger — Telegram Mini App",
+  description: "Find EV charging stations, start charging sessions, and manage your charging history.",
   generator: "v0.app",
 }
 
@@ -36,7 +36,7 @@ export default function RootLayout({
       <head>
         <Script src="https://telegram.org/js/telegram-web-app.js" strategy="beforeInteractive" />
       </head>
-      <body className={`${geist.variable} ${geistMono.variable} font-sans antialiased`}>
+      <body className={`${geist.variable} ${geistMono.variable} font-sans antialiased`} suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>

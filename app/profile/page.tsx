@@ -1,13 +1,13 @@
 "use client"
 
 import { useState } from "react"
-import { Bell, ChevronRight, Copy, Globe, Headphones, LifeBuoy, Share2, UserCog } from "lucide-react"
+import { Bell, ChevronRight, Globe, Headphones, LifeBuoy, Zap } from "lucide-react"
 import { MiniAppFrame } from "@/components/mini-app-frame"
 import { UserCard } from "@/components/user-card"
 import { cn } from "@/lib/utils"
 
 const SUPPORT_ROWS = [
-  { icon: Share2, label: "Invite friends", meta: "Earn $0.50 / invite" },
+  { icon: Zap, label: "Charging settings", meta: "Auto-stop · Notifications" },
   { icon: LifeBuoy, label: "Help center", meta: "FAQs · Guides" },
   { icon: Headphones, label: "Contact support", meta: "Avg. reply 8m" },
 ] as const
@@ -51,7 +51,6 @@ export default function ProfilePage() {
   }
 
   const accountRows = [
-    { icon: UserCog, label: "Profile settings", meta: "@TEVEA_CHHEM", onClick: undefined },
     {
       icon: Globe,
       label: "Language",
@@ -66,9 +65,8 @@ export default function ProfilePage() {
       <div className="flex flex-col gap-3">
         <UserCard />
 
-        {/* <TierProgress /> */}
-
-        <ReferralCard />
+        {/* Charging stats card */}
+        <ChargingStats />
 
         {/* Account section */}
         <section>
@@ -103,9 +101,9 @@ export default function ProfilePage() {
           </ul>
         </section>
 
-        {/* Rewards & support section */}
+        {/* Support section */}
         <section>
-          <h3 className="mb-1.5 px-1 text-[12px] font-semibold text-muted-foreground">Rewards &amp; support</h3>
+          <h3 className="mb-1.5 px-1 text-[12px] font-semibold text-muted-foreground">Charging & support</h3>
           <ul className="card-soft overflow-hidden rounded-2xl">
             {SUPPORT_ROWS.map((row, idx) => {
               const Icon = row.icon
@@ -136,59 +134,30 @@ export default function ProfilePage() {
         </section>
 
         <p className="text-center text-[11px] text-muted-foreground">
-          VetVerify · v1.2.0 · Telegram mini app
+          EV Charger · v1.0.0 · Telegram mini app
         </p>
       </div>
     </MiniAppFrame>
   )
 }
 
-function TierProgress() {
+function ChargingStats() {
   return (
     <section className="card-soft rounded-2xl p-4">
-      <div className="flex items-center justify-between">
-        <div>
-          <p className="text-[12px] text-muted-foreground">Loyalty tier</p>
-          <p className="mt-0.5 text-[14px] font-semibold">
-            Tier 2 <span className="text-muted-foreground">· Trusted</span>
-          </p>
+      <p className="text-[13px] font-semibold">Charging Summary</p>
+      <div className="mt-3 grid grid-cols-3 gap-2">
+        <div className="flex flex-col items-center rounded-xl bg-muted/60 px-2 py-2.5">
+          <p className="text-[16px] font-semibold text-[var(--brand)] tabular">852</p>
+          <p className="mt-0.5 text-[10px] text-muted-foreground">Total kWh</p>
         </div>
-        <span className="inline-flex items-center gap-1 rounded-full bg-[var(--brand-soft)] px-2 py-0.5 text-[11px] font-medium text-[var(--brand)]">
-          <span className="h-1 w-1 rounded-full bg-[var(--brand)]" />
-          Next: Tier 3
-        </span>
-      </div>
-      <div className="mt-3 flex items-center gap-2">
-        <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-muted">
-          <div className="h-full w-[63%] rounded-full bg-[var(--brand)]" />
+        <div className="flex flex-col items-center rounded-xl bg-muted/60 px-2 py-2.5">
+          <p className="text-[16px] font-semibold tabular">24</p>
+          <p className="mt-0.5 text-[10px] text-muted-foreground">Sessions</p>
         </div>
-        <p className="text-[12px] text-muted-foreground tabular">7 / 12</p>
-      </div>
-      <p className="mt-2 text-[12px] text-muted-foreground">
-        5 more verified activations unlock <span className="font-semibold text-foreground">5% off all plans</span>.
-      </p>
-    </section>
-  )
-}
-
-function ReferralCard() {
-  return (
-    <section className="card-soft rounded-2xl p-4">
-      <div className="flex items-center justify-between">
-        <p className="text-[13px] font-semibold">Referral code</p>
-        <p className="text-[11.5px] text-muted-foreground">$0.50 / invite</p>
-      </div>
-      <div className="mt-2 flex items-center gap-2">
-        <code className="flex-1 rounded-xl bg-muted px-3 py-2.5 font-mono text-[13px] font-semibold tracking-wider">
-          TEVEA-VV24
-        </code>
-        <button
-          type="button"
-          aria-label="Copy referral code"
-          className="press flex h-10 w-10 items-center justify-center rounded-full bg-muted text-foreground/80 hover:bg-muted/70"
-        >
-          <Copy className="h-4 w-4" aria-hidden />
-        </button>
+        <div className="flex flex-col items-center rounded-xl bg-muted/60 px-2 py-2.5">
+          <p className="text-[16px] font-semibold text-[var(--positive)] tabular">$42</p>
+          <p className="mt-0.5 text-[10px] text-muted-foreground">Saved</p>
+        </div>
       </div>
     </section>
   )

@@ -16,24 +16,26 @@
   --secondary-foreground: oklch(0.16 0.01 250);
   --muted: oklch(0.955 0.003 250);
   --muted-foreground: oklch(0.52 0.01 250);
-  --accent: oklch(0.95 0.05 150);
-  --accent-foreground: oklch(0.42 0.14 150);
+  --accent: oklch(0.92 0.04 190);
+  --accent-foreground: oklch(0.35 0.1 190);
   --destructive: oklch(0.62 0.22 25);
   --destructive-foreground: oklch(0.99 0 0);
   --border: oklch(0.92 0.004 250);
   --input: oklch(0.93 0.004 250);
-  --ring: oklch(0.58 0.15 150);
-  --brand: oklch(0.58 0.15 150);
+  --ring: oklch(0.62 0.12 190);
+  --brand: oklch(0.62 0.12 190);
   --brand-foreground: oklch(0.99 0 0);
-  --brand-soft: oklch(0.95 0.05 150);
-  --brand-2: oklch(0.7 0.13 165);
+  --brand-soft: oklch(0.94 0.04 190);
+  --brand-2: oklch(0.55 0.1 200);
   --surface: oklch(1 0 0);
   --positive: oklch(0.58 0.15 150);
   --positive-soft: oklch(0.95 0.05 150);
   --negative: oklch(0.62 0.2 25);
   --negative-soft: oklch(0.975 0.02 25);
-  --chart-1: oklch(0.58 0.15 150);
-  --chart-2: oklch(0.7 0.13 165);
+  --warning: oklch(0.78 0.15 75);
+  --warning-soft: oklch(0.96 0.05 75);
+  --chart-1: oklch(0.62 0.12 190);
+  --chart-2: oklch(0.55 0.1 200);
   --chart-3: oklch(0.62 0.2 25);
   --chart-4: oklch(0.72 0.15 85);
   --chart-5: oklch(0.65 0.14 185);
@@ -53,22 +55,24 @@
   --secondary-foreground: oklch(0.98 0 0);
   --muted: oklch(0.24 0.012 250);
   --muted-foreground: oklch(0.68 0.01 250);
-  --accent: oklch(0.3 0.08 150);
-  --accent-foreground: oklch(0.85 0.12 150);
+  --accent: oklch(0.3 0.06 190);
+  --accent-foreground: oklch(0.85 0.1 190);
   --destructive: oklch(0.62 0.22 25);
   --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(0.28 0.012 250);
   --input: oklch(0.28 0.012 250);
-  --ring: oklch(0.72 0.15 150);
-  --brand: oklch(0.72 0.15 150);
+  --ring: oklch(0.72 0.12 190);
+  --brand: oklch(0.72 0.12 190);
   --brand-foreground: oklch(0.15 0.008 250);
-  --brand-soft: oklch(0.28 0.08 150);
-  --brand-2: oklch(0.78 0.12 165);
+  --brand-soft: oklch(0.28 0.06 190);
+  --brand-2: oklch(0.65 0.1 200);
   --surface: oklch(0.18 0.01 250);
   --positive: oklch(0.72 0.15 150);
   --positive-soft: oklch(0.28 0.08 150);
   --negative: oklch(0.68 0.2 25);
   --negative-soft: oklch(0.3 0.09 25);
+  --warning: oklch(0.82 0.14 75);
+  --warning-soft: oklch(0.32 0.08 75);
 }
 
 @theme inline {
@@ -99,6 +103,8 @@
   --color-positive-soft: var(--positive-soft);
   --color-negative: var(--negative);
   --color-negative-soft: var(--negative-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -182,6 +188,25 @@
     background-size: 200% 100%;
     animation: skeleton-shimmer 1.6s ease-in-out infinite;
   }
+  /* EV Charger specific utilities */
+  .dashed-separator {
+    border: none;
+    border-top: 2px dashed var(--border);
+    margin: 0;
+  }
+  .gradient-header {
+    background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+    color: var(--brand-foreground);
+  }
+  .status-online {
+    color: var(--positive);
+  }
+  .status-offline {
+    color: var(--muted-foreground);
+  }
+  .status-charging {
+    color: var(--warning);
+  }
 }
 
 @keyframes page-in {
@@ -201,6 +226,17 @@
   }
   100% {
     background-position: 200% center;
+  }
+}
+
+@keyframes pin-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.85;
   }
 }
 
@@ -224,9 +260,14 @@
   animation: fade-up 200ms cubic-bezier(0.22, 0.8, 0.26, 1) both;
 }
 
+.pin-pulse {
+  animation: pin-pulse 2s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .page-in,
-  .fade-up {
+  .fade-up,
+  .pin-pulse {
     animation: none !important;
   }
   * {
